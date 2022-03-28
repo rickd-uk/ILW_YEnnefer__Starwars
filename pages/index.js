@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Character from '../components/Character'
 
 export default function Characters({ characters }) {
 	const CHARACTERS_TO_DISPLAY = 12
 	const [value, setValue] = useState(CHARACTERS_TO_DISPLAY)
+
+	let mounted = false
+	useEffect(() => {
+		mounted = true
+	}, [])
 
 	const handleShowMore = () => {
 		setValue(value + CHARACTERS_TO_DISPLAY)
@@ -12,9 +18,9 @@ export default function Characters({ characters }) {
 
 	return (
 		<>
-			<head>
+			<Head>
 				<title>Starwars Characters | Starwars.com</title>
-			</head>
+			</Head>
 			<HomeScreenContainer>
 				{/* <StarfieldLeft /> */}
 				<CharactersContainer>
@@ -43,4 +49,3 @@ const HomeScreenContainer = styled.div``
 const StarfieldLeft = styled.div``
 const StarfieldRight = styled.div``
 const CharactersContainer = styled.div``
-const Character = styled.div``
