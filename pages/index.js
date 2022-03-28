@@ -20,16 +20,22 @@ export default function Characters({ characters }) {
 		<>
 			<Head>
 				<title>Starwars Characters | Starwars.com</title>
+				<link rel='shortcut icon' href='data:image/x-icon;,' type='image/x-icon' />
 			</Head>
 			<HomeScreenContainer>
-				{/* <StarfieldLeft /> */}
+				<StarfieldLeft />
 				<CharactersContainer>
 					{characters
 						.filter((c) => c.id !== 28 && c.id != 77)
 						// use filter to exclude characters with no images
 						.map((character, index) => index < value && <Character character={character} key={character.id} />)}
 				</CharactersContainer>
-				{/* <StarfieldRight /> */}
+				{value < characters.length && (
+					<Button onClick={handleShowMore} n>
+						SHOW MORE
+					</Button>
+				)}
+				<StarfieldRight />
 			</HomeScreenContainer>
 		</>
 	)
@@ -49,3 +55,4 @@ const HomeScreenContainer = styled.div``
 const StarfieldLeft = styled.div``
 const StarfieldRight = styled.div``
 const CharactersContainer = styled.div``
+const Button = styled.button``
