@@ -6,6 +6,14 @@ import Footer from '../components/Footer'
 const GlobalStyle = createGlobalStyle`
    * {
 		 margin: 0;
+
+		 .disable-select {
+ user-select: none; /* supported by Chrome and Opera */
+ -webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+ -moz-user-select: none; /* Firefox */
+ -ms-user-select: none; /* Internet Explorer/Edge */
+}
 		}
   body {
     margin: 0;
