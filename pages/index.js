@@ -1,9 +1,8 @@
-import styled from 'styled-components'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import Character from '../components/Character'
 
-import { Button } from '../styles'
+import { HomeScreenContainer, StarField, StarfieldLeft, StarfieldRight, CharactersContainer, Button } from '../styles'
 
 export default function Characters({ characters }) {
 	const CHARACTERS_TO_DISPLAY = 12
@@ -22,7 +21,7 @@ export default function Characters({ characters }) {
 		<>
 			<Head>
 				<title>Starwars Characters | Starwars.com</title>
-				<link rel='shortcut icon' href='data:image/x-icon;,' type='image/x-icon' />
+				<link rel='shortcut icon' href='data:image/x-icon;' type='image/x-icon' />
 			</Head>
 			<HomeScreenContainer>
 				<StarfieldLeft />
@@ -52,38 +51,3 @@ export async function getStaticProps(context) {
 		},
 	}
 }
-
-const HomeScreenContainer = styled.div``
-
-const StarField = styled.div`
-	position: fixed;
-	width: 200px;
-	top: 0;
-	background-repeat: repeat-y;
-`
-// EXTENDING STYLES
-const StarfieldLeft = styled(StarField)`
-	left: 0;
-	height: 1700px;
-	background-position: left center;
-	background-size: 100% auto;
-	background-image: url(https://static-mh.content.disney.io/starwars/assets/background/bg_starsL-fd4661a3ccea.jpg);
-`
-const StarfieldRight = styled(StarField)`
-	right: 0;
-	height: 1700px;
-	background-position: right center;
-	background-size: auto 100%;
-	background-image: url(https://static-mh.content.disney.io/starwars/assets/background/bg_starsR-655c85e404d4.jpg);
-`
-
-const CharactersContainer = styled.div`
-	display: flex;
-	margin-top: 200px;
-	padding: 30px;
-	justify-content: center;
-	gap: 25px;
-	flex-wrap: wrap;
-	background-color: #151515;
-	color: white;
-`
