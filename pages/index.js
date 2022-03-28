@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Head from 'next/head'
+import { useState } from 'react'
 
 export default function Characters({ characters }) {
 	return (
@@ -10,8 +11,10 @@ export default function Characters({ characters }) {
 			<HomeScreenContainer>
 				{/* <StarfieldLeft /> */}
 				<CharactersContainer>
-					{console.log(characters)}
-					{/* {characters.filter()} */}
+					{characters
+						.filter((c) => c.id !== 28 && c.id != 77)
+						// use filter to exclude characters with no images
+						.map((character, index) => index < value && <Character character={character} key={character.id} />)}
 				</CharactersContainer>
 				{/* <StarfieldRight /> */}
 			</HomeScreenContainer>
@@ -33,3 +36,4 @@ const HomeScreenContainer = styled.div``
 const StarfieldLeft = styled.div``
 const StarfieldRight = styled.div``
 const CharactersContainer = styled.div``
+const Character = styled.div``
