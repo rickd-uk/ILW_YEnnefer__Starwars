@@ -3,6 +3,13 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 export default function Characters({ characters }) {
+	const CHARACTERS_TO_DISPLAY = 12
+	const [value, setValue] = useState(CHARACTERS_TO_DISPLAY)
+
+	const handleShowMore = () => {
+		setValue(value + CHARACTERS_TO_DISPLAY)
+	}
+
 	return (
 		<>
 			<head>
