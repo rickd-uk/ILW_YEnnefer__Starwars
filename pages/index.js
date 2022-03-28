@@ -8,9 +8,12 @@ export default function Characters({ characters }) {
 				<title>Starwars Characters | Starwars.com</title>
 			</head>
 			<HomeScreenContainer>
-				<StarfieldLeft />
-				<CharactersContainer></CharactersContainer>
-				<StarfieldRight />
+				{/* <StarfieldLeft /> */}
+				<CharactersContainer>
+					{console.log(characters)}
+					{/* {characters.filter()} */}
+				</CharactersContainer>
+				{/* <StarfieldRight /> */}
 			</HomeScreenContainer>
 		</>
 	)
@@ -27,3 +30,6 @@ export async function getStaticProps(context) {
 }
 
 const HomeScreenContainer = styled.div``
+const StarfieldLeft = styled.div``
+const StarfieldRight = styled.div``
+const CharactersContainer = styled.div``
