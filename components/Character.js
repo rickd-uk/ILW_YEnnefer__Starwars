@@ -2,7 +2,6 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 function Character({ character }) {
-	console.log(character)
 	return (
 		<CharacterContainer>
 			<Link href={`/id/${character.id}.json`}>

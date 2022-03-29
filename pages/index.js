@@ -23,7 +23,7 @@ export default function Characters({ characters }) {
 		<>
 			<Head>
 				<title>Starwars Characters | Starwars.com</title>
-				<link rel='shortcut icon' href='data:image/x-icon;' type='image/x-icon' />
+				<link rel='icon' type='image/x-icon' href='favicon.ico' />
 			</Head>
 			<HomeScreenContainer>
 				<StarfieldLeft />
@@ -44,7 +44,7 @@ export default function Characters({ characters }) {
 	)
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 	const characters = await fetch(CHARACTERS_DATA_URL).then((res) => res.json())
 
 	return {

@@ -2,21 +2,21 @@ import styled from 'styled-components'
 
 const HomeScreenContainer = styled.div``
 
-const StarField = styled.div`
+const Starfield = styled.div`
 	position: fixed;
 	width: 200px;
 	top: 0;
 	background-repeat: repeat-y;
 `
 // EXTENDING STYLES
-const StarfieldLeft = styled(StarField)`
+const StarfieldLeft = styled(Starfield)`
 	left: 0;
 	height: 1700px;
 	background-position: left center;
 	background-size: 100% auto;
 	background-image: url(https://static-mh.content.disney.io/starwars/assets/background/bg_starsL-fd4661a3ccea.jpg);
 `
-const StarfieldRight = styled(StarField)`
+const StarfieldRight = styled(Starfield)`
 	right: 0;
 	height: 1700px;
 	background-position: right center;
@@ -71,4 +71,4 @@ const Button = styled.button`
 	}
 `
 
-export { HomeScreenContainer, StarField, StarfieldLeft, StarfieldRight, CharactersContainer, Button }
+export { HomeScreenContainer, StarfieldLeft, StarfieldRight, CharactersContainer, Button }
