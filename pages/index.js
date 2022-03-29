@@ -4,6 +4,8 @@ import Character from '../components/Character'
 
 import { HomeScreenContainer, StarField, StarfieldLeft, StarfieldRight, CharactersContainer, Button } from '../styles'
 
+const CHARACTERS_DATA_URL = `https://akabab.github.io/starwars-api/api/all.json`
+
 export default function Characters({ characters }) {
 	const CHARACTERS_TO_DISPLAY = 12
 	const [value, setValue] = useState(CHARACTERS_TO_DISPLAY)
@@ -43,7 +45,7 @@ export default function Characters({ characters }) {
 }
 
 export async function getStaticProps(context) {
-	const characters = await fetch(`https://akabab.github.io/starwars-api/api/all.json`).then((res) => res.json())
+	const characters = await fetch(CHARACTERS_DATA_URL).then((res) => res.json())
 
 	return {
 		props: {
