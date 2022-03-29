@@ -1,7 +1,13 @@
+import { default as React, Component, PropTypes } from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { useState, useEffect } from 'react'
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react/cjs/react.production.min'
+
+import { Circle } from 'better-react-spinkit'
+import styled from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
    * {
@@ -29,13 +35,57 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 export default function App({ Component, pageProps }) {
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		const timeoutId = setTimeout(() => {
+			setLoading(false)
+		}, 500)
+		return () => {
+			clearTimeout(timeoutId)
+		}
+	}, [])
+
 	return (
 		<>
 			<GlobalStyle />
-			<Header />
-			<Navbar />
-			<Component {...pageProps} />
-			<Footer />
+			{loading ? (
+				<AppLoading>
+					<AppLoadingContents>
+						<img src='https://download.logo.wine/logo/Star_Wars/Star_Wars-Logo.wine.png' alt='' />
+						<Circle color='#edec51' size={60} />
+					</AppLoadingContents>
+				</AppLoading>
+			) : (
+				<>
+					<Header />
+					<Navbar />
+					<Component {...pageProps} />
+					<Footer />
+				</>
+			)}
 		</>
 	)
 }
+
+const AppLoading = styled.div`
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	width: 100%;
+`
+
+const AppLoadingContents = styled.div`
+	text-align: center;
+	padding-bottom: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	> img {
+		object-fit: contain;
+		height: 150px;
+		margin-bottom: 20px;
+		filter: brightness(0) invert(1);
+	}
+`
