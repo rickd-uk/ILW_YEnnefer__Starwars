@@ -35,7 +35,7 @@ const HeaderContainer = styled.div`
 	padding-bottom: 0;
 	background-image: url('https://static-mh.content.disney.io/starwars/assets/navigation/navigation_stars@2x-815223a7aade.jpg');
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	position: fixed;
 	top: 0;
