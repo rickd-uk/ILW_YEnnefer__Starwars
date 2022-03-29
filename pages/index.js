@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import Character from '../components/Character'
 
-import { HomeScreenContainer, StarField, StarfieldLeft, StarfieldRight, CharactersContainer, Button } from '../styles'
+import { HomeScreenContainer, StarfieldLeft, StarfieldRight, CharactersContainer, Button } from '../styles'
 
 const CHARACTERS_DATA_URL = `https://akabab.github.io/starwars-api/api/all.json`
 
